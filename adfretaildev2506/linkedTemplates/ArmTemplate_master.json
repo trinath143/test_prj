@@ -1,0 +1,132 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfretaildev2506"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"LS_ADB_Conn_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'LS_ADB_Conn'"
+		},
+		"ls_azuresqlsb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_azuresqlsb'"
+		},
+		"ls_gen2_tgt_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_gen2_tgt'"
+		},
+		"ls_onprem_sql_src_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_onprem_sql_src'"
+		},
+		"ls_sqldbconnect_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sqldbconnect'"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0413-015022-ws4eyvgj"
+		},
+		"LS_ADB_Conn_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0413-015022-ws4eyvgj"
+		},
+		"ls_gen2_tgt_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stgracntgen2tgt.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfretaildev2506_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"LS_ADB_Conn_accessToken": {
+						"value": "[parameters('LS_ADB_Conn_accessToken')]"
+					},
+					"ls_azuresqlsb_connectionString": {
+						"value": "[parameters('ls_azuresqlsb_connectionString')]"
+					},
+					"ls_gen2_tgt_accountKey": {
+						"value": "[parameters('ls_gen2_tgt_accountKey')]"
+					},
+					"ls_sqldbconnect_connectionString": {
+						"value": "[parameters('ls_sqldbconnect_connectionString')]"
+					},
+					"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
+					},
+					"LS_ADB_Conn_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('LS_ADB_Conn_properties_typeProperties_existingClusterId')]"
+					},
+					"ls_gen2_tgt_properties_typeProperties_url": {
+						"value": "[parameters('ls_gen2_tgt_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adfretaildev2506_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_onprem_sql_src_connectionString": {
+						"value": "[parameters('ls_onprem_sql_src_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfretaildev2506_ArmTemplate_0')]"
+			]
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfretaildev2506"
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"LS_ADB_Conn_accessToken": {
+			"value": ""
+		},
+		"ls_azuresqlsb_connectionString": {
+			"value": ""
+		},
+		"ls_gen2_tgt_accountKey": {
+			"value": ""
+		},
+		"ls_onprem_sql_src_connectionString": {
+			"value": ""
+		},
+		"ls_sqldbconnect_connectionString": {
+			"value": ""
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0413-015022-ws4eyvgj"
+		},
+		"LS_ADB_Conn_properties_typeProperties_existingClusterId": {
+			"value": "0413-015022-ws4eyvgj"
+		},
+		"ls_gen2_tgt_properties_typeProperties_url": {
+			"value": "https://stgracntgen2tgt.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

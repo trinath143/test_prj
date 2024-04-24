@@ -1,0 +1,9 @@
+{
+	"name": "adfretaildev2506",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "106ac5f9-6723-4eec-8a26-970f9dc19a4f",
+		"tenantId": "b36c02d2-9529-49f7-a8eb-c88dfb3f7beb"
+	}
+}

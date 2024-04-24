@@ -1,0 +1,33 @@
+{
+	"name": "PL_NB_Exc",
+	"properties": {
+		"activities": [
+			{
+				"name": "NB_Widgets",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/azurebatchdevelopers@gmail.com/Widgets_Text",
+					"baseParameters": {
+						"id": "1002"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_ADB_Conn",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-04-19T01:52:13Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

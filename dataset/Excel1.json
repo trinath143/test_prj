@@ -1,0 +1,32 @@
+{
+	"name": "Excel1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_gen2_tgt",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "config.xlsx",
+				"folderPath": "configfile",
+				"fileSystem": "cont-student"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "schema",
+				"type": "String"
+			},
+			{
+				"name": "table",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
